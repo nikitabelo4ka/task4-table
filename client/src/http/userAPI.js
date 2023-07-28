@@ -24,6 +24,11 @@ export const fetchUsers = async () => {
   return data;
 };
 
+export const fetchUser = async (id) => {
+  const { data } = await $authHost.get('api/user/one', {params: {id}});
+  return data;
+};
+
 export const deleteUser = async (id) => {
   const { data } = await $authHost.delete('api/user', { params: { id } });
   return data;

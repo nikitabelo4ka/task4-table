@@ -1,6 +1,6 @@
-import {React, useContext, useEffect, useState} from 'react';
+import {React, useContext} from 'react';
 import {Context} from "../index";
-import {LOGIN_ROUTE, TABLE_ROUTE} from "../utils/consts";
+import {LOGIN_ROUTE} from "../utils/consts";
 import {useNavigate} from 'react-router-dom';
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
@@ -13,18 +13,6 @@ const NavBar = () => {
     const {user} = useContext(Context);
 
     const history = useNavigate();
-
-    const [isUser, setIsUser] = useState(true);
-
-    const token = localStorage.getItem('token') ? jwtDecode(localStorage.getItem('token')) : null;
-
-    useEffect(() => {
-        if (token && token.role === 'USER') {
-          setIsUser(true);
-        } else {
-          setIsUser(false);
-        }
-    }, [token]);
 
     const logOut = () => {
         user.setUser({});

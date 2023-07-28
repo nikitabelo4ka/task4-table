@@ -9,6 +9,7 @@ router.patch("/status", userController.changeStatus);
 router.patch("/lastLogin", userController.changeLoginDate);
 router.get("/auth", authMiddleware, userController.check);
 router.get("/", userController.getALL);
+router.get("/one", userController.getOne);
 router.delete("/", userController.delete);
 
 module.exports = router;

@@ -81,6 +81,15 @@ class userController {
 
     }
 
+    async getOne(request, response) {
+        
+        let {id} = request.query;
+
+        const user = await User.findOne({where: {id}});
+
+        return response.json(user);
+    }
+
     async delete(request, response, next) {
 
         try {
